@@ -4,20 +4,20 @@
 amis_nat: ami-303b1458
 
 # This key must be a key with admin access
-aws_access_key_id: CHANGEME
-aws_secret_access_key: CHANGEME
+aws_access_key_id: ((aws_access_key_id))
+aws_secret_access_key: ((aws_secret_access_key))
 
-aws_az1: us-east-1a
-aws_az2: us-east-1b
-aws_az3: us-east-1d
+aws_az1: us-gov-west-1a
+aws_az2: us-gov-west-1b
+aws_az3: us-gov-west-1c
 
 # ARN of the wildcard certificate to use; upload this in [AWS](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html#upload-server-certificate). This must be done prior to running the pipeline.
-aws_cert_arn: CHANGEME
+# aws_cert_arn: CHANGEME
 
 # Upload PEM to AWS as the below key pair name
-aws_key_name: CHANGEME
+aws_key_name: pcf-ops-manager-key
 
-aws_region: us-east-1
+aws_region: us-gov-west-1
 
 # Ciphers
 # An ordered, colon-delimited list of Golang supported TLS cipher suites in OpenSSL format.
@@ -32,39 +32,39 @@ container_networking_nw_cidr: 10.255.0.0/16
 # For credhub integration, Set the number of credhub instances in resource config to 2
 # Primary Encryption Name MUST match one of the encryption key names provided
 # Encryption keys 2 and 3 are optional
-credhub_primary_encryption_name: dummy encryption key 1
-credhub_encryption_key_name1: dummy encryption key 1
-credhub_encryption_key_secret1: CHANGEME_CHANGEME_CHANGEME_CHANGEME
+credhub_primary_encryption_name: credhubencryptionkey1
+credhub_encryption_key_name1: credhubencryptionkey1
+credhub_encryption_key_secret1: ((credhub_encryption_key_secret1))
 credhub_encryption_key_name2: # Optional Name 2
 credhub_encryption_key_secret2: # Optional Secret 2
 credhub_encryption_key_name3: # Optional Name 3
 credhub_encryption_key_secret3: # Optional Secret 2
 
 # ERT Database Credentials - Required
-db_accountdb_password: CHANGEME
-db_accountdb_username: CHANGEME
-db_app_usage_service_password: CHANGEME
-db_app_usage_service_username: CHANGEME
-db_autoscale_password: CHANGEME
-db_autoscale_username: CHANGEME
-db_ccdb_password: CHANGEME
-db_ccdb_username: CHANGEME
-db_diego_password: CHANGEME
-db_diego_username: CHANGEME
-db_locket_password: CHANGEME
-db_locket_username: CHANGEME
-db_networkpolicyserverdb_password: CHANGEME
-db_networkpolicyserverdb_username: CHANGEME
-db_nfsvolumedb_password: CHANGEME
-db_nfsvolumedb_username: CHANGEME
-db_notifications_password: CHANGEME
-db_notifications_username: CHANGEME
-db_routing_password: CHANGEME
-db_routing_username: CHANGEME
-db_silk_password: CHANGEME
-db_silk_username: CHANGEME
-db_uaa_password: CHANGEME
-db_uaa_username: CHANGEME
+db_accountdb_password: ((ert_database_credentials))
+db_accountdb_username: ((ert_database_credentials))
+db_app_usage_service_password: ((ert_database_credentials))
+db_app_usage_service_username: ((ert_database_credentials))
+db_autoscale_password: ((ert_database_credentials))
+db_autoscale_username: ((ert_database_credentials))
+db_ccdb_password: ((ert_database_credentials))
+db_ccdb_username: ((ert_database_credentials))
+db_diego_password: ((ert_database_credentials))
+db_diego_username: ((ert_database_credentials))
+db_locket_password: ((ert_database_credentials))
+db_locket_username: ((ert_database_credentials))
+db_networkpolicyserverdb_password: ((ert_database_credentials))
+db_networkpolicyserverdb_username: ((ert_database_credentials))
+db_nfsvolumedb_password: ((ert_database_credentials))
+db_nfsvolumedb_username: ((ert_database_credentials))
+db_notifications_password: ((ert_database_credentials))
+db_notifications_username: ((ert_database_credentials))
+db_routing_password: ((ert_database_credentials))
+db_routing_username: ((ert_database_credentials))
+db_silk_password: ((ert_database_credentials))
+db_silk_username: ((ert_database_credentials))
+db_uaa_password: ((ert_database_credentials))
+db_uaa_username: ((ert_database_credentials))
 
 # RDS Master Credentials - Required
 db_master_password: CHANGEME
