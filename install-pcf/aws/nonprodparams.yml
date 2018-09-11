@@ -11,8 +11,9 @@ aws_az1: us-gov-west-1a
 aws_az2: us-gov-west-1b
 aws_az3: us-gov-west-1c
 
-# ARN of the wildcard certificate to use; upload this in [AWS](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html#upload-server-certificate). This must be done prior to running the pipeline.
-# aws_cert_arn: CHANGEME
+# ARN of the wildcard certificate to use; upload this in [AWS](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html#upload-server-certificate).
+# This must be done prior to running the pipeline.
+aws_cert_arn: ((aws_cert_arn))
 
 # Upload PEM to AWS as the below key pair name
 aws_key_name: pcf-ops-manager-key
@@ -99,14 +100,14 @@ apps_domain: ((apps_domain))   # e.g. apps.pcf.example.com
 ert_errands_to_disable: none
 
 # PCF Elastic Runtime minor version to track
-ert_major_minor_version: ^2\.0\.[0-9]+$ # ERT minor version to track (e.g ^2\.0\.[0-9]+$ will track 2.0.x versions)
+ert_major_minor_version: ^2\.2\.[0-9]+$ # ERT minor version to track (e.g ^2\.0\.[0-9]+$ will track 2.0.x versions)
 
 # Optional. Duration in seconds to maintain an open connection when client supports keep-alive.
 frontend_idle_timeout: 61
 
 # Optional - if your git repo requires an SSH key.
 
-haproxy_forward_tls: enable # If enabled HAProxy will forward all requests to the router over TLS (enable|disable)
+haproxy_forward_tls: disable # If enabled HAProxy will forward all requests to the router over TLS (enable|disable)
 haproxy_backend_ca:         # Required if haproxy_forward_tls is enabled - HAProxy will use the CA provided to verify the certificates provided by the router.
 
 # Whether or not the ERT VMs are internet connected.
@@ -121,10 +122,10 @@ opsman_admin_username: ((opsman_admin_username))
 opsman_admin_password: ((opsman_admin_password))
 
 # CIDRs to allow HTTPS access to Operations Manager from
-opsman_allow_https_cidr_ranges:
+opsman_allow_https_cidr_ranges: 0.0.0.0/0
 
 # CIDRs to allow SSH access to Operations Manager from; configure PEM as well with the private key
-opsman_allow_ssh_cidr_ranges:
+opsman_allow_ssh_cidr_ranges: 0.0.0.0/0
 
 # The domain to access Operations Manager;
 opsman_domain_or_ip_address: ((opsman_domain_or_ip_address)) #This must be your pcf_ert_domain with "opsman." as a prefix. For example, opsman.pcf.example.com
@@ -158,7 +159,7 @@ routing_tls_termination: load_balancer
 
 # For terraform state file (http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)
 S3_ENDPOINT: https://s3-us-gov-west-1.amazonaws.com
-S3_OUTPUT_BUCKET: vi2e-pcf-sandbox-terraform
+S3_OUTPUT_BUCKET: vi2e-pcf-nonprod-terraform
 
 # Setting appropriate Application Security Groups is critical for a secure
 # deployment. Change the value of the param below to "X" to acknowledge that
@@ -176,38 +177,38 @@ security_acknowledgement: X
 #   * Dynamic Services network: Deploy dynamic services, **three subnets on three AZs to achieve HA**
 #   * RDS network: Deploy RDS databases, **three subnets on three AZs to achieve HA**
 #   * Infrastructure network: Deploy Bosh director
-dynamic_services_subnet_cidr_az1: 192.168.112.0/22
-dynamic_services_subnet_cidr_az2: 192.168.128.0/22
-dynamic_services_subnet_cidr_az3: 192.168.144.0/22
-dynamic_services_subnet_reserved_ranges_z1: 192.168.112.0 - 192.168.112.10
-dynamic_services_subnet_reserved_ranges_z2: 192.168.128.0 - 192.168.128.10
-dynamic_services_subnet_reserved_ranges_z3: 192.168.144.0 - 192.168.144.10
-ert_subnet_cidr_az1: 192.168.16.0/20
-ert_subnet_cidr_az2: 192.168.32.0/20
-ert_subnet_cidr_az3: 192.168.48.0/20
-ert_subnet_reserved_ranges_z1: 192.168.16.0 - 192.168.16.10
-ert_subnet_reserved_ranges_z2: 192.168.32.0 - 192.168.32.10
-ert_subnet_reserved_ranges_z3: 192.168.48.0 - 192.168.48.10
-infra_subnet_cidr_az1: 192.168.6.0/24
-infra_subnet_reserved_ranges_z1: 192.168.6.0 - 192.168.6.10
-nat_ip_az1: 192.168.0.6
-nat_ip_az2: 192.168.1.6
-nat_ip_az3: 192.168.2.6
-opsman_ip_az1: 192.168.0.7
-public_subnet_cidr_az1: 192.168.0.0/24
-public_subnet_cidr_az2: 192.168.1.0/24
-public_subnet_cidr_az3: 192.168.2.0/24
-rds_subnet_cidr_az1: 192.168.3.0/24
-rds_subnet_cidr_az2: 192.168.4.0/24
-rds_subnet_cidr_az3: 192.168.5.0/24
-services_subnet_cidr_az1: 192.168.64.0/20
-services_subnet_cidr_az2: 192.168.80.0/20
-services_subnet_cidr_az3: 192.168.96.0/20
-services_subnet_reserved_ranges_z1: 192.168.64.0 - 192.168.64.10
-services_subnet_reserved_ranges_z2: 192.168.80.0 - 192.168.80.10
-services_subnet_reserved_ranges_z3: 192.168.96.0 - 192.168.96.10
-vpc_cidr: 192.168.0.0/16
+dynamic_services_subnet_cidr_az1: ((dynamic_services_subnet_cidr_az1))
+dynamic_services_subnet_cidr_az2: ((dynamic_services_subnet_cidr_az2))
+dynamic_services_subnet_cidr_az3: ((dynamic_services_subnet_cidr_az3))
+dynamic_services_subnet_reserved_ranges_z1: ((dynamic_services_subnet_reserved_ranges_z1))
+dynamic_services_subnet_reserved_ranges_z2: ((dynamic_services_subnet_reserved_ranges_z2))
+dynamic_services_subnet_reserved_ranges_z3: ((dynamic_services_subnet_reserved_ranges_z3))
+ert_subnet_cidr_az1: ((ert_subnet_cidr_az1))
+ert_subnet_cidr_az2: ((ert_subnet_cidr_az2))
+ert_subnet_cidr_az3: ((ert_subnet_cidr_az3))
+ert_subnet_reserved_ranges_z1: ((ert_subnet_reserved_ranges_z1))
+ert_subnet_reserved_ranges_z2: ((ert_subnet_reserved_ranges_z2))
+ert_subnet_reserved_ranges_z3: ((ert_subnet_reserved_ranges_z2))
+infra_subnet_cidr_az1: ((infra_subnet_cidr_az1))
+infra_subnet_reserved_ranges_z1: ((infra_subnet_reserved_ranges_z1))
+nat_ip_az1: ((nat_ip_az1))
+nat_ip_az2: ((nat_ip_az2))
+nat_ip_az3: ((nat_ip_az3))
+opsman_ip_az1: ((opsman_ip_az1))
+public_subnet_cidr_az1: ((public_subnet_cidr_az1))
+public_subnet_cidr_az2: ((public_subnet_cidr_az2))
+public_subnet_cidr_az3: ((public_subnet_cidr_az3))
+rds_subnet_cidr_az1: ((rds_subnet_cidr_az1))
+rds_subnet_cidr_az2: ((rds_subnet_cidr_az2))
+rds_subnet_cidr_az3: ((rds_subnet_cidr_az3))
+services_subnet_cidr_az1: ((services_subnet_cidr_az1))
+services_subnet_cidr_az2: ((services_subnet_cidr_az2))
+services_subnet_cidr_az3: ((services_subnet_cidr_az3))
+services_subnet_reserved_ranges_z1: ((services_subnet_reserved_ranges_z1))
+services_subnet_reserved_ranges_z2: ((services_subnet_reserved_ranges_z2))
+services_subnet_reserved_ranges_z3: ((services_subnet_reserved_ranges_z3))
+vpc_cidr: ((vpc_cidr))
 
 # Prefix to use for Terraform-managed infrastructure, e.g. 'pcf-terraform'
 # Must be globally unique.
-terraform_prefix: pcf-sandbox-teraform
+terraform_prefix: pcf-vi2e-nonprod-terraform
