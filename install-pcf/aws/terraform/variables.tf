@@ -11,7 +11,7 @@ variable "aws_region" {}
 variable "aws_az1" {}
 variable "aws_az2" {}
 variable "aws_az3" {}
-variable "route53_zone_id" {}
+/* variable "route53_zone_id" {} */
 
 /*
 * used for configuring ingress rules to ops manager vm
@@ -154,4 +154,3 @@ variable "infra_subnet_cidr_az1" {
 variable "nat_ip_az3" {
     default = "10.0.2.6"
 }
-

@@ -120,7 +120,7 @@ jobs:
       rds_subnet_cidr_az1: {{rds_subnet_cidr_az1}}
       rds_subnet_cidr_az2: {{rds_subnet_cidr_az2}}
       rds_subnet_cidr_az3: {{rds_subnet_cidr_az3}}
-      route53_zone_id: {{ROUTE_53_ZONE_ID}}
+      #route53_zone_id: {{ROUTE_53_ZONE_ID}}
       services_subnet_cidr_az1: {{services_subnet_cidr_az1}}
       services_subnet_cidr_az2: {{services_subnet_cidr_az2}}
       services_subnet_cidr_az3: {{services_subnet_cidr_az3}}
