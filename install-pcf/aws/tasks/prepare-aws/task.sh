@@ -39,7 +39,7 @@ terraform plan \
   -var "aws_az1=${aws_az1}" \
   -var "aws_az2=${aws_az2}" \
   -var "aws_az3=${aws_az3}" \
-  -var "route53_zone_id=${route53_zone_id}" \
+#  -var "route53_zone_id=${route53_zone_id}" \
   -var "vpc_cidr=${vpc_cidr}" \
   -var "system_domain=${system_domain}" \
   -var "apps_domain=${apps_domain}" \
