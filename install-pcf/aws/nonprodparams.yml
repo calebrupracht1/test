@@ -1,7 +1,7 @@
 # AMI to use for nat box
 # Update with the correct NAT AMI for your region. List of AMIs can be found
 # here: https://github.com/pivotal-cf/terraforming-aws/blob/master/nat.tf
-amis_nat: ami-303b1458
+amis_nat: ami-c177eba0
 
 # This key must be a key with admin access
 aws_access_key_id: ((aws_access_key_id))
