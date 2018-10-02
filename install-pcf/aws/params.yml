@@ -40,7 +40,7 @@ credhub_encryption_key_secret2: # Optional Secret 2
 credhub_encryption_key_name3: # Optional Name 3
 credhub_encryption_key_secret3: # Optional Secret 2
 
-# ERT Database Credentials - Required
+# ERT Database Credentials - Required(Usernames CANNOT be 'admin'
 db_accountdb_password: CHANGEME
 db_accountdb_username: CHANGEME
 db_app_usage_service_password: CHANGEME
