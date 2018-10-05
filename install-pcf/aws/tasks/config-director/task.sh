@@ -1,5 +1,7 @@
 #!/bin/bash -v
 
+echo OOH-LA-LA
+
 set -eu
 
 aws_access_key_id=`terraform state show -state terraform-state/terraform.tfstate aws_iam_access_key.pcf_iam_user_access_key | grep ^id | awk '{print $3}'`
