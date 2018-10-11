@@ -9,7 +9,7 @@ resource "aws_db_instance" "pcf_rds" {
     identifier              = "${var.prefix}-pcf"
     allocated_storage       = 100
     engine                  = "mariadb"
-    engine_version          = "10.1.19"
+    engine_version          = "10.1.34"
     iops                    = 1000
     instance_class          = "${var.db_instance_type}"
     name                    = "bosh"
