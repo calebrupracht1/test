@@ -41,6 +41,15 @@ output "s3_pcf_droplets" {
 output "s3_pcf_packages" {
     value = "${aws_s3_bucket.packages.bucket}"
 }
+output "s3_buildpacks_backup" {
+    value = "${aws_s3_bucket.buildpacks-backup.bucket}"
+}
+output "s3_pcf_droplets_backup" {
+    value = "${aws_s3_bucket.droplets-backup.bucket}"
+}
+output "s3_pcf_packages_backup" {
+    value = "${aws_s3_bucket.packages-backup.bucket}"
+}
 output "s3_pcf_resources" {
     value = "${aws_s3_bucket.resources.bucket}"
 }
