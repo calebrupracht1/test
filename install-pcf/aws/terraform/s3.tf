@@ -42,6 +42,42 @@ resource "aws_s3_bucket" "packages" {
     }
 }
 
+resource "aws_s3_bucket" "buildpacks-backup" {
+    bucket = "${var.prefix}-buildpacks-backup"
+    acl = "private"
+    force_destroy= true
+
+    tags {
+        Name = "${var.prefix}-buildpacks-backup"
+        Environment = "${var.prefix}"
+        Type = "backup"
+    }
+}
+
+resource "aws_s3_bucket" "droplets-backup" {
+    bucket = "${var.prefix}-droplets-backup"
+    acl = "private"
+    force_destroy= true
+
+    tags {
+        Name = "${var.prefix}-droplets-backup"
+        Environment = "${var.prefix}"
+        Type = "backup"
+    }
+}
+
+resource "aws_s3_bucket" "packages-backup" {
+    bucket = "${var.prefix}-packages-backup"
+    acl = "private"
+    force_destroy= true
+
+    tags {
+        Name = "${var.prefix}-packages-backup"
+        Environment = "${var.prefix}"
+        Type = "backup"
+    }
+}
+
 resource "aws_s3_bucket" "resources" {
     bucket = "${var.prefix}-resources"
     acl = "private"

@@ -20,6 +20,7 @@ aws_cert_arn: arn:aws-us-gov:iam::168937056000:server-certificate/vi2e-cert
 aws_key_name: pcf-ops-manager-key
 
 aws_region: us-gov-west-1
+aws_backup_region: us-gov-west-1
 
 # Ciphers
 # An ordered, colon-delimited list of Golang supported TLS cipher suites in OpenSSL format.
@@ -77,7 +78,7 @@ db_master_password: ((db_master.password))
 
 # RDS CA cert for credhub database configuration, can be downloaded from https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
 RDS_CA_CERT: |
-  ((rds_ca_cert.certificate))
+  ((rds_ca_cert_string))
 
 # Optional PEM-encoded certificates to add to BOSH VMs
 director_certificates: |
