@@ -60,6 +60,12 @@ resource "aws_iam_user_policy" "PcfErtPolicy" {
                 "arn:aws-us-gov:s3:::${var.prefix}-droplets/*",
                 "arn:aws-us-gov:s3:::${var.prefix}-packages",
                 "arn:aws-us-gov:s3:::${var.prefix}-packages/*",
+                "arn:aws-us-gov:s3:::${var.prefix}-buildpacks-backup",
+                "arn:aws-us-gov:s3:::${var.prefix}-buildpacks-backup/*",
+                "arn:aws-us-gov:s3:::${var.prefix}-droplets-backup",
+                "arn:aws-us-gov:s3:::${var.prefix}-droplets-backup/*",
+                "arn:aws-us-gov:s3:::${var.prefix}-packages-backup",
+                "arn:aws-us-gov:s3:::${var.prefix}-packages-backup/*",
                 "arn:aws-us-gov:s3:::${var.prefix}-resources",
                 "arn:aws-us-gov:s3:::${var.prefix}-resources/*"
             ],
