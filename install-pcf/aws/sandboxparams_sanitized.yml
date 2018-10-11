@@ -44,34 +44,40 @@ credhub_encryption_key_name3: # Optional Name 3
 credhub_encryption_key_secret3: # Optional Secret 2
 
 # ERT Database Credentials - Required
-db_accountdb_password: ((ert_db_password))
-db_accountdb_username: accountdb_admin
-db_app_usage_service_password: ((ert_db_password))
-db_app_usage_service_username: appusage_admin
-db_autoscale_password: ((ert_db_password))
-db_autoscale_username: autoscale_admin
-db_ccdb_password: ((ert_db_password))
-db_ccdb_username: ccdb_admin
-db_diego_password: ((ert_db_password))
-db_diego_username: diego_admin
-db_locket_password: ((ert_db_password))
-db_locket_username: locket_admin
-db_networkpolicyserverdb_password: ((ert_db_password))
-db_networkpolicyserverdb_username: netpolicyserver_admin
-db_nfsvolumedb_password: ((ert_db_password))
-db_nfsvolumedb_username: nfsvol_admin
-db_notifications_password: ((ert_db_password))
-db_notifications_username: notify_admin
-db_routing_password: ((ert_db_password))
-db_routing_username: routing_admin
-db_silk_password: ((ert_db_password))
-db_silk_username: silk_admin
-db_uaa_password: ((ert_db_password))
-db_uaa_username: uaa_admin
+db_accountdb_username: ((db_accountdb.username))
+db_accountdb_password: ((db_accountdb.password))
+db_app_usage_service_username: ((db_app_usage_service.username))
+db_app_usage_service_password: ((db_app_usage_service.password))
+db_autoscale_username: ((db_autoscale.username))
+db_autoscale_password: ((db_autoscale.password))
+db_ccdb_username: ((db_ccdb.username))
+db_ccdb_password: ((db_ccdb.password))
+db_credhub_username: ((db_credhub.username))
+db_credhub_password: ((db_credhub.password))
+db_diego_username: ((db_diego.username))
+db_diego_password: ((db_diego.password))
+db_locket_username: ((db_locket.username))
+db_locket_password: ((db_locket.password))
+db_networkpolicyserverdb_username: ((db_networkpolicyserverdb.username))
+db_networkpolicyserverdb_password: ((db_networkpolicyserverdb.password))
+db_nfsvolumedb_username: ((db_nfsvolumedb.username))
+db_nfsvolumedb_password: ((db_nfsvolumedb.password))
+db_notifications_username: ((db_notifications.username))
+db_notifications_password: ((db_notifications.password))
+db_routing_username: ((db_routing.username))
+db_routing_password: ((db_routing.password))
+db_silk_username: ((db_silk.username))
+db_silk_password: ((db_silk.password))
+db_uaa_username: ((db_uaa.username))
+db_uaa_password: ((db_uaa.password))
 
 # RDS Master Credentials - Required
-db_master_password: ((db_master_password))
-db_master_username: admin
+db_master_username: ((db_master.username))
+db_master_password: ((db_master.password))
+
+# RDS CA cert for credhub database configuration, can be downloaded from https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+RDS_CA_CERT: |
+  ((rds_ca_cert.certificate))
 
 # Optional PEM-encoded certificates to add to BOSH VMs
 director_certificates: |

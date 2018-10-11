@@ -151,6 +151,8 @@ jobs:
       DB_ROUTING_USERNAME: {{db_routing_username}}
       DB_SILK_PASSWORD: {{db_silk_password}}
       DB_SILK_USERNAME: {{db_silk_username}}
+      DB_CREDHUB_USERNAME: {{db_credhub_username}}
+      DB_CREDHUB_PASSWORD: {{db_credhub_password}}
       DB_UAA_PASSWORD: {{db_uaa_password}}
       DB_UAA_USERNAME: {{db_uaa_username}}
       OPSMAN_DOMAIN_OR_IP_ADDRESS: {{opsman_domain_or_ip_address}}
@@ -363,6 +365,9 @@ jobs:
       S3_ENDPOINT: {{S3_ENDPOINT}}
       SECURITY_ACKNOWLEDGEMENT: {{security_acknowledgement}}
       SYSTEM_DOMAIN: {{system_domain}}
+      RDS_CA_CERT: {{RDS_CA_CERT}}
+      db_credhub_username: {{db_credhub_username}}
+      db_credhub_password: {{db_credhub_password}}
       db_accountdb_password: {{db_accountdb_password}}
       db_accountdb_username: {{db_accountdb_username}}
       db_app_usage_service_password: {{db_app_usage_service_password}}
