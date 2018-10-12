@@ -487,9 +487,9 @@ cf_properties=$(
 )
 
 echo "\n\ncf-resources"
-echo $cf-resources
+echo $cf_resources
 echo "\n\ncf-properties"
-echo $cf-properties
+echo $cf_properties
 echo "\n\ncf_network"
 echo $cf_network
 
