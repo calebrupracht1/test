@@ -486,6 +486,13 @@ cf_properties=$(
     '
 )
 
+echo "\n\ncf-resources"
+echo $cf-resources
+echo "\n\ncf-properties"
+echo $cf-properties
+echo "\n\ncf_network"
+echo $cf_network
+
 om-linux \
   --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
   --username "$OPS_MGR_USR" \
