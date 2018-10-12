@@ -77,8 +77,7 @@ db_master_username: ((db_master.username))
 db_master_password: ((db_master.password))
 
 # RDS CA cert for credhub database configuration, can be downloaded from https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
-RDS_CA_CERT: |
-  ((rds_ca_cert_string))
+RDS_CA_CERT: ((rds_ca_cert_string))
 
 # Optional PEM-encoded certificates to add to BOSH VMs
 director_certificates: |
