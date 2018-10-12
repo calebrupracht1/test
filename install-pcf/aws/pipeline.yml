@@ -351,6 +351,29 @@ jobs:
       HAPROXY_FORWARD_TLS: {{haproxy_forward_tls}}
       HAPROXY_TLS_CIPHERS: {{haproxy_tls_ciphers}}
       INTERNET_CONNECTED: {{internet_connected}}
+      BACKUP_PREPARE_INSTANCES: {{backup_prepare_instances}}
+      CLOCK_GLOBAL_INSTANCES: {{clock_global_instances}}
+      CLOUD_CONTROLLER_INSTANCES: {{cloud_controller_instances}}
+      CLOUD_CONTROLLER_WORKER_INSTANCES: {{cloud_controller_worker_instances}}
+      CONSUL_SERVER_INSTANCES: {{consul_server_instances}}
+      CREDHUB_INSTANCES: {{credhub_instances}}
+      DIEGO_BRAIN_INSTANCES: {{diego_brain_instances}}
+      DIEGO_CELL_INSTANCES: {{diego_cell_instances}}
+      DIEGO_DATABASE_INSTANCES: {{diego_database_instances}}
+      DOPPLER_INSTANCES: {{doppler_instances}}
+      HA_PROXY_INSTANCES: {{ha_proxy_instances}}
+      LOGGREGATOR_TRAFFICCONTROLLER_INSTANCES: {{loggregator_trafficcontroller_instances}}
+      MYSQL_INSTANCES: {{mysql_instances}}
+      MYSQL_MONITOR_INSTANCES: {{mysql_monitor_instances}}
+      MYSQL_PROXY_INSTANCES: {{mysql_proxy_instances}}
+      NATS_INSTANCES: {{nats_instances}}
+      NFS_SERVER_INSTANCES: {{nfs_server_instances}}
+      SYSLOG_ADAPTER_INSTANCES: {{syslog_adapter_instances}}
+      SYSLOG_SCHEDULER_INSTANCES: {{syslog_scheduler_instances}}
+      ROUTER_INSTANCES: {{router_instances}}
+      TCP_ROUTER_INSTANCES: {{tcp_router_instances}}
+      UAA_INSTANCES: {{uaa_instances}}
+      AWS_BACKUP_REGION: {{aws_backup_region}}
       OPS_MGR_PWD: {{opsman_admin_password}}
       OPS_MGR_USR: {{opsman_admin_username}}
       OPSMAN_CLIENT_ID: ""

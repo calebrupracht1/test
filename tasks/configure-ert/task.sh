@@ -167,30 +167,52 @@ cf_resources=$(
     --arg terraform_prefix $terraform_prefix \
     --arg iaas $pcf_iaas \
     --argjson internet_connected $INTERNET_CONNECTED \
+    --arg backup_prepare_instances $BACKUP_PREPARE_INSTANCES \
+    --arg clock_global_instances $CLOCK_GLOBAL_INSTANCES \
+    --arg cloud_controller_instances $CLOUD_CONTROLLER_INSTANCES \
+    --arg cloud_controller_worker_instances $CLOUD_CONTROLLER_WORKER_INSTANCES \
+    --arg consul_server_instances $CONSUL_SERVER_INSTANCES \
+    --arg credhub_instances $CREDHUB_INSTANCES \
+    --arg diego_brain_instances $DIEGO_BRAIN_INSTANCES \
+    --arg diego_cell_instances $DIEGO_CELL_INSTANCES \
+    --arg diego_database_instances $DIEGO_DATABASE_INSTANCES \
+    --arg doppler_instances $DOPPLER_INSTANCES \
+    --arg ha_proxy_instances $HA_PROXY_INSTANCES \
+    --arg loggregator_trafficcontroller_instances $LOGGREGATOR_TRAFFICCONTROLLER_INSTANCES \
+    --arg mysql_instances $MYSQL_INSTANCES \
+    --arg mysql_monitor_instances $MYSQL_MONITOR_INSTANCES \
+    --arg mysql_proxy_instances $MYSQL_PROXY_INSTANCES \
+    --arg nats_instances $NATS_INSTANCES \
+    --arg nfs_server_instances $NFS_SERVER_INSTANCES \
+    --arg router_instances $ROUTER_INSTANCES \
+    --arg syslog_adapter_instances $SYSLOG_ADAPTER_INSTANCES \
+    --arg syslog_scheduler_instances $SYSLOG_SCHEDULER_INSTANCES \
+    --arg tcp_router_instances $TCP_ROUTER_INSTANCES \
+    --arg uaa_instances $UAA_INSTANCES \
     '
     {
-      "backup-prepare": {"internet_connected": $internet_connected},
-      "clock_global": {"internet_connected": $internet_connected},
-      "cloud_controller": {"internet_connected": $internet_connected},
-      "cloud_controller_worker": {"internet_connected": $internet_connected},
-      "consul_server": {"internet_connected": $internet_connected},
-      "credhub": {"internet_connected": $internet_connected},
-      "diego_brain": {"internet_connected": $internet_connected},
-      "diego_cell": {"internet_connected": $internet_connected},
-      "diego_database": {"internet_connected": $internet_connected},
-      "doppler": {"internet_connected": $internet_connected},
-      "ha_proxy": {"internet_connected": $internet_connected},
-      "loggregator_trafficcontroller": {"internet_connected": $internet_connected},
-      "mysql": {"instances": 0, "internet_connected": $internet_connected},
-      "mysql_monitor": {"instances": 0, "internet_connected": $internet_connected},
-      "mysql_proxy": {"instances": 0, "internet_connected": $internet_connected},
-      "nats": {"internet_connected": $internet_connected},
-      "nfs_server": {"internet_connected": $internet_connected},
-      "router": {"internet_connected": $internet_connected},
-      "syslog_adapter": {"internet_connected": $internet_connected},
-      "syslog_scheduler": {"internet_connected": $internet_connected},
-      "tcp_router": {"internet_connected": $internet_connected},
-      "uaa": {"internet_connected": $internet_connected}
+      "backup-prepare": {"instances": $backup_prepare_instances, "internet_connected": $internet_connected},
+      "clock_global": {"instances": $clock_global_instances, "internet_connected": $internet_connected},
+      "cloud_controller": {"instances": $cloud_controller_instances, "internet_connected": $internet_connected},
+      "cloud_controller_worker": {"instances": $cloud_controller_worker_instances, "internet_connected": $internet_connected},
+      "consul_server": {"instances": $consul_server_instances, "internet_connected": $internet_connected},
+      "credhub": {"instances": $credhub_instances, "internet_connected": $internet_connected},
+      "diego_brain": {"instances": $diego_brain_instances, "internet_connected": $internet_connected},
+      "diego_cell": {"instances": $diego_cell_instances, "internet_connected": $internet_connected},
+      "diego_database": {"instances": $diego_database_instances, "internet_connected": $internet_connected},
+      "doppler": {"instances": $doppler_instances, "internet_connected": $internet_connected},
+      "ha_proxy": {"instances": $ha_proxy_instances, "internet_connected": $internet_connected},
+      "loggregator_trafficcontroller": {"instances": $loggregator_trafficcontroller_instances, "internet_connected": $internet_connected},
+      "mysql": {"instances": $mysql_instances, "internet_connected": $internet_connected},
+      "mysql_monitor": {"instances": $mysql_monitor_instances, "internet_connected": $internet_connected},
+      "mysql_proxy": {"instances": $mysql_proxy_instances, "internet_connected": $internet_connected},
+      "nats": {"instances": $nats_instances, "internet_connected": $internet_connected},
+      "nfs_server": {"instances": $nfs_server_instances, "internet_connected": $internet_connected},
+      "router": {"instances": $router_instances, "internet_connected": $internet_connected},
+      "syslog_adapter": {"instances": $syslog_adapter_instances, "internet_connected": $internet_connected},
+      "syslog_scheduler": {"instances": $syslog_scheduler_instances, "internet_connected": $internet_connected},
+      "tcp_router": {"instances": $tcp_router_instances, "internet_connected": $internet_connected},
+      "uaa": {"instances": $uaa_instances, "internet_connected": $internet_connected}
     }
 
     |
@@ -267,6 +289,7 @@ cf_properties=$(
     --argjson networking_poe_ssl_certs "$networking_poe_ssl_certs_json" \
     --arg container_networking_nw_cidr "$CONTAINER_NETWORKING_NW_CIDR" \
     --arg RDS_CA_CERT "$RDS_CA_CERT" \
+    --arg aws_backup_region "$AWS_BACKUP_REGION" \
     '
     {
       ".uaa.service_provider_key_credentials": {
@@ -365,13 +388,17 @@ cf_properties=$(
       {
         ".properties.system_blobstore": { "value": "external" },
         ".properties.system_blobstore.external.buildpacks_bucket": { "value": "\($terraform_prefix)-buildpacks" },
+        ".properties.system_blobstore.external.buildpacks_backup_bucket": { "value": "\($terraform_prefix)-buildpacks-backup" },
         ".properties.system_blobstore.external.droplets_bucket": { "value": "\($terraform_prefix)-droplets" },
+        ".properties.system_blobstore.external.droplets_backup_bucket": { "value": "\($terraform_prefix)-droplets-backup" },
         ".properties.system_blobstore.external.packages_bucket": { "value": "\($terraform_prefix)-packages" },
+        ".properties.system_blobstore.external.packages_backup_bucket": { "value": "\($terraform_prefix)-packages-backup" },
         ".properties.system_blobstore.external.resources_bucket": { "value": "\($terraform_prefix)-resources" },
         ".properties.system_blobstore.external.access_key": { "value": $aws_access_key },
         ".properties.system_blobstore.external.secret_key": { "value": { "secret": $aws_secret_key } },
         ".properties.system_blobstore.external.signature_version": { "value": "4" },
         ".properties.system_blobstore.external.region": { "value": $aws_region },
+        ".properties.system_blobstore.external.backup_region": { "value": $aws_backup_region },
         ".properties.system_blobstore.external.endpoint": { "value": $s3_endpoint }
       }
     elif $iaas == "gcp" then

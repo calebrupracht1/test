@@ -144,6 +144,30 @@ frontend_idle_timeout: 61
 haproxy_forward_tls: disable # If enabled HAProxy will forward all requests to the router over TLS (enable|disable)
 haproxy_backend_ca:         # Required if haproxy_forward_tls is enabled - HAProxy will use the CA provided to verify the certificates provided by the router.
 
+# Instances
+backup_prepare_instances: 1
+clock_global_instances: 1
+cloud_controller_instances: 2
+cloud_controller_worker_instances: 2
+consul_server_instances: 3
+credhub_instances: 2
+diego_brain_instances: 3
+diego_cell_instances: 5
+diego_database_instances: 3
+doppler_instances: 3
+ha_proxy_instances: 1
+loggregator_trafficcontroller_instances: 3
+mysql_instances: 0
+mysql_monitor_instances: 0
+mysql_proxy_instances: 0
+nats_instances: 2
+nfs_server_instances: 0
+router_instances: 3
+syslog_adapter_instances: 3
+syslog_scheduler_instances: 2
+tcp_router_instances: 0
+uaa_instances: 2
+
 # Whether or not the ERT VMs are internet connected.
 internet_connected: false
 
