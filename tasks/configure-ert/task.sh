@@ -167,28 +167,28 @@ cf_resources=$(
     --arg terraform_prefix $terraform_prefix \
     --arg iaas $pcf_iaas \
     --argjson internet_connected $INTERNET_CONNECTED \
-    --arg backup_prepare_instances $BACKUP_PREPARE_INSTANCES \
-    --arg clock_global_instances $CLOCK_GLOBAL_INSTANCES \
-    --arg cloud_controller_instances $CLOUD_CONTROLLER_INSTANCES \
-    --arg cloud_controller_worker_instances $CLOUD_CONTROLLER_WORKER_INSTANCES \
-    --arg consul_server_instances $CONSUL_SERVER_INSTANCES \
-    --arg credhub_instances $CREDHUB_INSTANCES \
-    --arg diego_brain_instances $DIEGO_BRAIN_INSTANCES \
-    --arg diego_cell_instances $DIEGO_CELL_INSTANCES \
-    --arg diego_database_instances $DIEGO_DATABASE_INSTANCES \
-    --arg doppler_instances $DOPPLER_INSTANCES \
-    --arg ha_proxy_instances $HA_PROXY_INSTANCES \
-    --arg loggregator_trafficcontroller_instances $LOGGREGATOR_TRAFFICCONTROLLER_INSTANCES \
-    --arg mysql_instances $MYSQL_INSTANCES \
-    --arg mysql_monitor_instances $MYSQL_MONITOR_INSTANCES \
-    --arg mysql_proxy_instances $MYSQL_PROXY_INSTANCES \
-    --arg nats_instances $NATS_INSTANCES \
-    --arg nfs_server_instances $NFS_SERVER_INSTANCES \
-    --arg router_instances $ROUTER_INSTANCES \
-    --arg syslog_adapter_instances $SYSLOG_ADAPTER_INSTANCES \
-    --arg syslog_scheduler_instances $SYSLOG_SCHEDULER_INSTANCES \
-    --arg tcp_router_instances $TCP_ROUTER_INSTANCES \
-    --arg uaa_instances $UAA_INSTANCES \
+    --argjson backup_prepare_instances $BACKUP_PREPARE_INSTANCES \
+    --argjson clock_global_instances $CLOCK_GLOBAL_INSTANCES \
+    --argjson cloud_controller_instances $CLOUD_CONTROLLER_INSTANCES \
+    --argjson cloud_controller_worker_instances $CLOUD_CONTROLLER_WORKER_INSTANCES \
+    --argjson consul_server_instances $CONSUL_SERVER_INSTANCES \
+    --argjson credhub_instances $CREDHUB_INSTANCES \
+    --argjson diego_brain_instances $DIEGO_BRAIN_INSTANCES \
+    --argjson diego_cell_instances $DIEGO_CELL_INSTANCES \
+    --argjson diego_database_instances $DIEGO_DATABASE_INSTANCES \
+    --argjson doppler_instances $DOPPLER_INSTANCES \
+    --argjson ha_proxy_instances $HA_PROXY_INSTANCES \
+    --argjson loggregator_trafficcontroller_instances $LOGGREGATOR_TRAFFICCONTROLLER_INSTANCES \
+    --argjson mysql_instances $MYSQL_INSTANCES \
+    --argjson mysql_monitor_instances $MYSQL_MONITOR_INSTANCES \
+    --argjson mysql_proxy_instances $MYSQL_PROXY_INSTANCES \
+    --argjson nats_instances $NATS_INSTANCES \
+    --argjson nfs_server_instances $NFS_SERVER_INSTANCES \
+    --argjson router_instances $ROUTER_INSTANCES \
+    --argjson syslog_adapter_instances $SYSLOG_ADAPTER_INSTANCES \
+    --argjson syslog_scheduler_instances $SYSLOG_SCHEDULER_INSTANCES \
+    --argjson tcp_router_instances $TCP_ROUTER_INSTANCES \
+    --argjson uaa_instances $UAA_INSTANCES \
     '
     {
       "backup-prepare": {"instances": $backup_prepare_instances, "internet_connected": $internet_connected},
@@ -485,6 +485,13 @@ cf_properties=$(
     }
     '
 )
+
+echo "\n\ncf-resources"
+echo $cf_resources
+echo "\n\ncf-properties"
+echo $cf_properties
+echo "\n\ncf_network"
+echo $cf_network
 
 om-linux \
   --target https://$OPSMAN_DOMAIN_OR_IP_ADDRESS \
