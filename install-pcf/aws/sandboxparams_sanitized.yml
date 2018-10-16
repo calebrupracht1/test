@@ -130,8 +130,6 @@ director_certificates: |
   LQ==
   -----END CERTIFICATE-----
 
-
-
 # Domain Names for ERT
 pcf_ert_domain: sandbox.vi2e.io # This is the domain you will access ERT with, for example: pcf.example.com.
 system_domain: system.sandbox.vi2e.io # e.g. system.pcf.example.com
