@@ -41,6 +41,15 @@ output "s3_pcf_droplets" {
 output "s3_pcf_packages" {
     value = "${aws_s3_bucket.packages.bucket}"
 }
+output "s3_pcf_packages" {
+    value = "${aws_s3_bucket.om-backup.bucket}"
+}
+output "s3_pcf_packages" {
+    value = "${aws_s3_bucket.ert-backup.bucket}"
+}
+output "s3_pcf_packages" {
+    value = "${aws_s3_bucket.director-backup.bucket}"
+}
 output "s3_buildpacks_backup" {
     value = "${aws_s3_bucket.buildpacks-backup.bucket}"
 }
