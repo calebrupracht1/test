@@ -172,7 +172,7 @@ resources:
     - Friday
     - Saturday
     interval: 30m
-    location: America/Los_Angeles
+    location: America/New_York
     start: 12:00 AM
     stop: 11:59 PM
   type: time

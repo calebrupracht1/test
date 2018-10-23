@@ -17,7 +17,7 @@ enable_errands:
 
 # The IaaS name for which stemcell to download. This must match the IaaS name
 # within the stemcell to download, e.g. "vsphere", "aws", "azure", "google" must be lowercase.
-iaas_type: CHANGEME
+iaas_type: aws
 
 
 # Operations Manager
@@ -27,18 +27,18 @@ iaas_type: CHANGEME
 # Either opsman_client_id/opsman_client_secret or opsman_admin_username/opsman_admin_password needs to be specified.
 # If you are using opsman_admin_username/opsman_admin_password, edit opsman_client_id/opsman_client_secret to be an empty value.
 # If you are using opsman_client_id/opsman_client_secret, edit opsman_admin_username/opsman_admin_password to be an empty value.
-opsman_admin_username: CHANGEME
-opsman_admin_password: CHANGEME
-opsman_client_id: CHANGEME
-opsman_client_secret: CHANGEME
-opsman_domain_or_ip_address: CHANGEME
+opsman_admin_username: ((opsman_admin_username))
+opsman_admin_password: ((opsman_admin_password))
+opsman_client_id:
+opsman_client_secret:
+opsman_domain_or_ip_address: ((opsman_admin_host))
 
 # Resource
 # ------------------------------
 # The token used to download the product file from Pivotal Network. Find this
 # on your Pivotal Network profile page:
 # https://network.pivotal.io/users/dashboard/edit-profile
-pivnet_token: CHANGEME
+pivnet_token: ((pivnet_token))
 
 # The globs regular expression for the PivNet resource to download the product
 # release files. "*pivotal" is the default.
@@ -54,7 +54,8 @@ product_globs: "*pivotal"
 # This can be found in the URL of the product page, e.g. for rabbitmq the URL
 # is https://network.pivotal.io/products/pivotal-rabbitmq-service, and the
 # product slug is 'pivotal-rabbitmq-service'.
-product_slug: CHANGEME
+product_slug: p-redis
 
 # The minor product version to track, as a regexp. To track 1.11.x of a product, this would be "^2\.0\.[0-9]+$", as shown below.
-product_version_regex: CHANGEME
+product_version_regex: 1\..*
+#product_version_regex: 1\.13\..*
