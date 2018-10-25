@@ -168,8 +168,11 @@ jobs:
         globs:
         - "credhub-linux-*"
     - get: terraform-state
-    - get: useful-tools
-    - file: useful-tools/credhub-push/tasks/update-credhub/task.yml
+      passed:
+      - create-infrastructure
+      trigger: true
+    - get: pcf-pipelines
+    - file: pcf-pipelines/install-pcf/aws/tasks/update-credhub/task.yml
       params:
           FOUNDATION_NAME: {{foundation_name}}
           CONCOURSE_CREDHUB_SECRET: ((concourse_credhub_secret))
