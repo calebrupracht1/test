@@ -320,3 +320,26 @@ terraform_prefix: vi2e-pcf-nonprod
 
 pcf-pipelines-git-uri: ssh://git@bitbucket.di2e.net:7999/vi2e/paas-pcf.git
 pcf-pipelines-git-private-key: ((di2e_bitbucket.private_key))
+
+foundation_name: nonprod
+concourse_credhub_ca_cert: |
+  -----BEGIN CERTIFICATE-----
+  MIIDLTCCAhWgAwIBAgIUIhEbvjw53VZka9d6Pz9sKmIlvaEwDQYJKoZIhvcNAQEL
+  BQAwEDEOMAwGA1UEAxMFYXRjQ0EwHhcNMTgwOTIxMTgzNzU4WhcNMTkwOTIxMTgz
+  NzU4WjAQMQ4wDAYDVQQDEwVhdGNDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+  AQoCggEBAL/CeP7duDCvWl9afg5yI7Mhfi4+huRX91X4+0Ed6LBRGrjtII2V/Wmz
+  PqffVVEGg3YTm5Ekf2pspUlryOOzyi/vFLVOxqB6eoYIvTEqCdLF1SrNYPYk3SsQ
+  C3vZpYqCYSs25ur6/jN+LSlnRu7B+d8L3ARc2LWlLkYanqgqk9TpFA7RIvGMe9HO
+  wuWArOqSGSaDG9PYkrhTDUnOZfW0mNrpXGEnhNBvGlLfxk3AKMP1yx7lXVC0pr6w
+  UhwpTPyGVpW93iAiaAwypadtFSZsBBrdUGPfhdZSbi+1MGYb1c3jibDA15+Wq5l3
+  ZNIr8hhaRkXDOcEAAfSy9WuSZw2R4DsCAwEAAaN/MH0wHQYDVR0OBBYEFB05WOGa
+  iJDWXQO/ffqorEV72CbMMEsGA1UdIwREMEKAFB05WOGaiJDWXQO/ffqorEV72CbM
+  oRSkEjAQMQ4wDAYDVQQDEwVhdGNDQYIUIhEbvjw53VZka9d6Pz9sKmIlvaEwDwYD
+  VR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAQXbVRZP7SgHqXxsPvj1t
+  xUVvTuxv/F70xIYF7V+gHolzEudvga00/wR6v66cFnnrMmJUMEmGHHcIt4zVuetk
+  B5K4wyUWtMMmvxbwJ5Ow7tqmInRQp2zJMhbvDLqO4ZytCpYD8ZC2F3hOHLTJZ5qV
+  9/4MB77eb68PnpKZBFCoOo6hiw+6leqOfpC2c02EjD3tPLK49VBWzn1Yp6YCuOPb
+  /nxWRmLaT7RXz3DcvO7V4hqF2NaeHpEoaOWnWccoj0GDqUto6cRRPRr0LLKcLOc5
+  r852vGvIGvfIDjJeiHURPD5EfqMY60xYOThVOEHVC8Dypanpc+EKVoigASzuxuTc
+  ww==
+  -----END CERTIFICATE-----
