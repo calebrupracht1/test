@@ -160,6 +160,21 @@ jobs:
     task: prepare-rds
   serial_groups:
   - terraform
+- name: update-credhub
+  plan:
+  - do:
+    - get: credhub-cli-tarball
+      params:
+        globs:
+        - "credhub-linux-*"
+    - get: terraform-state
+    - get: useful-tools
+    - file: useful-tools/credhub-push/tasks/update-credhub/task.yml
+      params:
+          FOUNDATION_NAME: {{foundation_name}}
+          CONCOURSE_CREDHUB_SECRET: ((concourse_credhub_secret))
+          CONCOURSE_CREDHUB_CA_CERT: {{concourse_credhub_ca_cert}}
+      task: update-credhub
 - name: configure-director
   plan:
   - aggregate:
@@ -527,3 +542,15 @@ resources:
     product_version: {{opsman_major_minor_version}}
     sort_by: semver
   type: pivnet
+- name: credhub-cli-tarball
+  type: github-release
+  source:
+    user: cloudfoundry-incubator
+    repository: credhub-cli
+    access_token: ((github_token)) ## Optional: Removing this will cause you to hit the rate limit
+# - name: useful-tools
+#   type: git
+#   source:
+#     uri: ssh://git@bitbucket.di2e.net:7999/vi2e/useful-tools.git
+#     branch: master
+#     private_key: ((di2e-bitbucket.private_key))
