@@ -33,6 +33,9 @@ opsman_client_id:
 opsman_client_secret:
 opsman_domain_or_ip_address: ((opsman_admin_host))
 
+pcf-pipelines-git-uri: ssh://git@bitbucket.di2e.net:7999/vi2e/paas-pcf.git
+pcf-pipelines-git-private-key: ((di2e_bitbucket.private_key))
+
 # Resource
 # ------------------------------
 # The token used to download the product file from Pivotal Network. Find this
@@ -57,5 +60,5 @@ product_globs: "*pivotal"
 product_slug: p-redis
 
 # The minor product version to track, as a regexp. To track 1.11.x of a product, this would be "^2\.0\.[0-9]+$", as shown below.
-product_version_regex: 1\..*
-#product_version_regex: 1\.13\..*
+#product_version_regex: 1\..*
+product_version_regex: 1\.13\..*
