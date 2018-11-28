@@ -32,4 +32,4 @@ params:
   AWS_SECRET_ACCESS_KEY:
 
 run:
-  path: pcf-pipelines/paas-pcf/tasks/create-initial-terraform-state/task.sh
+  path: pcf-pipelines/test-master/tasks/create-initial-terraform-state/task.sh
