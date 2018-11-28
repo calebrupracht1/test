@@ -18,8 +18,8 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: pcfnorm/rootfs
-    tag: 1.0.15
+    repository: pivotalservices/platform-automation
+    tag: latest
 
 inputs:
 - name: pcf-pipelines
@@ -32,4 +32,4 @@ params:
   AWS_SECRET_ACCESS_KEY:
 
 run:
-  path: pcf-pipelines/tasks/create-initial-terraform-state/task.sh
+  path: pcf-pipelines/paas-pcf/tasks/create-initial-terraform-state/task.sh
